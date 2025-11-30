@@ -9,7 +9,7 @@ import sys
 local_path = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(local_path, ".."))
 
-import models.bicyleXYModel as bicycleXYModel
+import models.bicycleXYModel as bicycleXYModel
 
 
 @dataclass

@@ -66,8 +66,8 @@ class BicycleXYModel(BaseModel):
             ax.set_aspect('equal')
             ax.set_xlim(-1, 5)
             ax.set_ylim(-1, 5)
-            ax.set_xlabel('px (m)', fontsize=14)
-            ax.set_ylabel('py (m)', fontsize=14)
+            ax.set_xlabel(r'$p_{\mathrm{x}}$ (m)', fontsize=14)
+            ax.set_ylabel(r'$p_{\mathrm{y}}$ (m)', fontsize=14)
 
             for i_agent in range(num_agents):
                 front_x = x_trajectory[i_agent*nx, i] + self.model_config.lf * ca.cos(x_trajectory[i_agent*nx+2, i])
