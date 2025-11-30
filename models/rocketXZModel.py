@@ -33,15 +33,16 @@ class RocketXZModel(BaseModel):
         x_dot = ca.vertcat(
             x[2],  # \dot{px}
             x[3],  # \dot{pz}
-            u[0] * ca.sin(x[4] + u[1]) / self.model_config.mass,  # \dot{vx}
-            -self.model_config.gravity - u[0] * ca.cos(x[4] + u[1]) / self.model_config.mass,  # \dot{vz}
+            - u[0] * ca.sin(x[4] + u[1]) / self.model_config.mass,  # \dot{vx}
+            -self.model_config.gravity + u[0] * ca.cos(x[4] + u[1]) / self.model_config.mass,  # \dot{vz}
             x[5],  # \dot{pitch}
             -u[0] * ca.sin(u[1]) * self.model_config.d / self.model_config.inertia  # \dot{vpitch}
         )
-        dae = {'x': x, 'p': u, 'ode': x_dot}
-        opts = {'tf': self._sampling_time}
 
-        self.I = ca.integrator('I', 'rk', dae, opts)
+        # set up integrator for discrete dynamics
+        # multiply xdot by sampling time (time scaling), since casadi integrator integrates over [0,1] by default
+        dae = {'x': x, 'p': u, 'ode': self._sampling_time * x_dot}
+        self.I = ca.integrator('I', 'rk', dae)
 
         self.A_func = ca.Function('A_func', [x, u], [ca.jacobian(x_dot, x)])
         self.B_func = ca.Function('B_func', [x, u], [ca.jacobian(x_dot, u)])
@@ -75,7 +76,7 @@ class RocketXZModel(BaseModel):
             return vertices
         def compute_thrust_polygon(x:np.ndarray, u:np.ndarray):
             thrust_width = 0.1
-            thrust_scaling = -0.05
+            thrust_scaling = 0.05
             vertices = np.array([[0.0, thrust_width, -thrust_width], [0.0, -u[0], -u[0]]])
             vertices[1, :] *= thrust_scaling
             rot_matrix_1 = np.array([[np.cos(u[1]), -np.sin(u[1])], [np.sin(u[1]), np.cos(u[1])]])
@@ -123,7 +124,10 @@ class RocketXZModel(BaseModel):
             ax.set_title(f"Rocket XZ Simulation: Step {i+1}")
             ax.legend(loc="lower right")
             fig.subplots_adjust(bottom=0.15)
-            plt.show(block=False)
-            plt.pause(1.0 if i == sim_length else 0.2)
+            if i < sim_length:
+                plt.show(block=False)
+                plt.pause(0.2)
+            else:
+                plt.show(block=True)
             ax.clear()
         return
