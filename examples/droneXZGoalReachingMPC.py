@@ -116,7 +116,7 @@ class DroneXZGoalReachingCtrl:
 
 def main():
     sampling_time = 0.05
-    sim_length = 100
+    sim_length = 40
     x_init = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
     goal = np.array([1.0, 1.0])
     model = droneXZModel.DroneXZModel(sampling_time)

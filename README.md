@@ -33,7 +33,7 @@ First, please follow the installation instructions above.
 2. Navigate to the cloned folder in your terminal
 3. Run the example file
 	```bash
-	python examples/omniBotTrackingOCP.py
+	python examples/bicycleXYMultiAgent.py
 	```
 	If you see a figure popping up, that means that everything works as intended.
 

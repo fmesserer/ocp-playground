@@ -38,9 +38,11 @@ class DroneXZModel(BaseModel):
             x[5],  # \dot{pitch}
             (u[1] - u[0]) / self.model_config.inertia                                             # \dot{vpitch}
         )
-        dae = {'x': x, 'p': u, 'ode': x_dot}
-        opts = {'tf': self._sampling_time}
-        self.I = ca.integrator('I', 'rk', dae, opts)
+        # set up integrator for discrete dynamics
+        # multiply xdot by sampling time (time scaling), since casadi integrator integrates over [0,1] by default
+        dae = {'x': x, 'p': u, 'ode': self._sampling_time * x_dot}
+
+        self.I = ca.integrator('I', 'rk', dae)
 
         self.A_func = ca.Function('A_func', [x, u], [ca.jacobian(x_dot, x)])
         self.B_func = ca.Function('B_func', [x, u], [ca.jacobian(x_dot, u)])
@@ -84,8 +86,8 @@ class DroneXZModel(BaseModel):
             ax.set_aspect('equal')
             ax.set_xlim(-0.5, 2.0)
             ax.set_ylim(-0.5, 2.0)
-            ax.set_xlabel('px(m)', fontsize=14)
-            ax.set_ylabel('pz(m)', fontsize=14)
+            ax.set_xlabel(r'$p_{\mathrm{x}}$ (m)', fontsize=14)
+            ax.set_ylabel(r'$p_{\mathrm{z}}$ (m)', fontsize=14)
             left_x = x_trajectory[0, i] - self.model_config.d * ca.cos(x_trajectory[4, i])
             left_z = x_trajectory[1, i] - self.model_config.d * ca.sin(x_trajectory[4, i])
             right_x = x_trajectory[0, i] + self.model_config.d * ca.cos(x_trajectory[4, i])
@@ -109,7 +111,10 @@ class DroneXZModel(BaseModel):
             ax.set_title(f"Drone XZ Simulation: Step {i+1}")
             ax.legend()
             fig.subplots_adjust(bottom=0.15)
-            plt.show(block=False)
-            plt.pause(1.0 if i == sim_length else 0.2)
+            if i < sim_length:
+                plt.show(block=False)
+                plt.pause(0.2)
+            else:
+                plt.show(block=True)
             ax.clear()
         return
