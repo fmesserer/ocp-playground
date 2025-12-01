@@ -20,6 +20,7 @@ For this we use so called *direct methods*, which involve first discretizing the
 We approximate the continuous state trajectory $x(t)$ on grid points $t_0, \dots, t_k, t_{k+1}, \dots, t_N$ as $x(t_k) \approx x_k$.
 Also, parametrize the control trajectory as piecewise constant over each interval: $u(t) = u_k, \forall  t \in [t_k, t_{k+1}]$, with intervals of constant duration, $h = t_{k+1} - t_k$.
 This defines the discretized dynamics
+
 $$
 \begin{aligned}
 	x_{k+1} = F(x_k, u_k),
