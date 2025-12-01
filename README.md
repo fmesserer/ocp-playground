@@ -1,5 +1,5 @@
 
-### Ideas for Models & Methods
+### Examples
 
 For inspiration, we prepared a few models and methods that you can use as a starting point. 
 
@@ -14,7 +14,16 @@ Ideas for Methods:
 - Closed Loop
 	- [Model Predictive Control](documentation/Method%20-%20Model%20Predictive%20Control.md)
 	
-For every of the models and the methods, we prepared examples, that you can use as a starting point.
+For each of the models, we prepared examples that you can use as a starting point.
+
+![Rocket example](documentation/_misc/rocket.gif)
+
+![Drone example](documentation/_misc/drone.gif)
+
+![Bicycle multi-agent example](documentation/_misc/bicycle_multi.gif)
+
+![OmniBot example](documentation/_misc/omnibot.gif)
+
 
 ### Tools & Installation
 
