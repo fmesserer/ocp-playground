@@ -58,7 +58,9 @@ $$
 
 The decision variables of the problem contain the *discrete* state and control trajectories on the time grid. We have $N+1$ variables 
 
-$$x_0,x_1, \dots, x_N \in \mathbb{R}^{n_x}$$
+$$
+x_0,x_1, \dots, x_N \in \mathbb{R}^{n_x}
+$$
 
 for the state trajectory, and $N$ variables for the control trajectory,
 
@@ -75,17 +77,17 @@ $$
 &  0 = x_{k+1} - F(x_k, u_k), \quad &k=0,\dots,N-1. \end{aligned}
 $$
 
-
-  
-
 The cost function is divided into a *stage cost*  $l(x_k, u_k)$ for each interval and a terminal cost $E(x_N)$ for the terminal node. A very common example is a *tracking cost* 
+
 $$
 \begin{aligned}\sum_{k=0}^{N-1} (x_k - \bar{x}_ k)^\top Q (x_k - \bar{x}_ k) + (u_k - \bar{u}_ k)^\top R (u_k - \bar{u}_ k), \end{aligned}
 $$
+
 with given reference trajectories $\bar{x}_0$, $\dots$,  $\bar{x}_N$ and  $\bar{u}_0$, $\dots$, $\bar u_{N-1}$.
 The different entries of the state and control vector can be traded-off against each other via the  (typically diagonal) weighting matrices $Q$ and $R$.
 
 Furthermore, we can demand that trajectory should satisfy some constraints, for example simple bounds. This is expressed via stagewise inequality constraints, 
+
 $$
 h(x_k, u_k) \leq 0.
 $$
