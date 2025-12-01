@@ -84,7 +84,7 @@ $$
 \begin{aligned}\sum_{k=0}^{N-1} (x_k - \bar{x}_ k)^\top Q (x_k - \bar{x}_ k) + (u_k - \bar{u}_ k)^\top R (u_k - \bar{u}_ k), \end{aligned}
 $$
 
-with given reference trajectories $\bar{x}_0$, $\dots$,  $\bar{x}_N$ and  $\bar{u}_0$, $\dots$, $\bar {u}_{N-1}$.
+with given reference trajectories $\bar{x}_0$, $\dots$,  $\bar{x}_N$ and  $\bar{u}_0$, $\dots$, $\bar{u}_{N-1}$.
 The different entries of the state and control vector can be traded-off against each other via the  (typically diagonal) weighting matrices $Q$ and $R$.
 
 Furthermore, we can demand that trajectory should satisfy some constraints, for example simple bounds. This is expressed via stagewise inequality constraints, 
