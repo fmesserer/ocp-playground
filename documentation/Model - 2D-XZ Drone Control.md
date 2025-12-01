@@ -6,6 +6,7 @@ In this model, we consider a drone in the 2D xz-plane:
 
 ## Dynamics
 The state and control vectors are
+
 $$
 x = \begin{bmatrix}
 p \\
