@@ -10,10 +10,10 @@ x = \begin{bmatrix}
 p_x \\
 p_y \\
 \theta
-\end{bmatrix} \in \mathbb{R}^3, \quad u = \begin{bmatrix}
+\end{bmatrix} \in \mathrm{R}^3, \quad u = \begin{bmatrix}
 \delta \\
 V
-\end{bmatrix} \in \mathbb{R}^2
+\end{bmatrix} \in \mathrm{R}^2
 $$
 with position $p_x$, $p_y$, and heading angle $\theta$ relative to the $x$-axis. The vehicle is controlled by choosing the steering angle $\delta$ and the velocity $V$.
 The resulting dynamics are
