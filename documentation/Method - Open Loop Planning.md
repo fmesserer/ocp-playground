@@ -13,8 +13,8 @@ $$
 $$
 
 with state $x\in \mathbb{R}^{n_x}$, and control $u\in \mathbb{R}^{n_u}$.
-We want to find a find a control strategy $u(t)$ such that the trajectory $x(t)$ that the system (hopefully) follows in the future, is optimal with respect to some cost function.
-For this we use so called *direct methods*, which involve first discretizing the dynamics and their solution and then formulating the optimal control task into a nonlinear program.
+We want to find a find a control strategy $u(t)$ such that the planned trajectory $x(t)$ is optimal with respect to some cost function.
+For this we use *direct methods*, which involve first discretizing the dynamics and their solution and then formulating the optimal control task into a nonlinear program.
 ## Discrete Dynamics
 
 We approximate the continuous state trajectory $x(t)$ on grid points $t_0, \dots, t_k, t_{k+1}, \dots, t_N$ as $x(t_k) \approx x_k$.
@@ -52,8 +52,8 @@ $$
 \begin{aligned}
 \min_{x_0,u_0, \dots, u_{N-1}, x_N} &\sum_{k=0}^{N-1} l_k(x_k,u_k) + E(x_N) \\
 \text{s.t.}\quad & 0 = x_0 - \bar{x}_0, \\
-&  0 = x_{k+1} - F(x_k, u_k), \quad &k=0,\dots,N-1 \\
-&  0 \geq h(x_k, u_k), \quad &k=0,\dots,N-1 
+&  0 = x_{k+1} - F(x_k, u_k), \quad &k=0,\dots,N-1, \\
+&  0 \geq h(x_k, u_k), \quad &k=0,\dots,N-1.
 \end{aligned}
 $$
 
@@ -68,8 +68,6 @@ for the state trajectory, and $N$ variables for the control trajectory,
 $$
 u_0, u_1, \dots, u_{N-1} \in \mathbb{R}^{n_u}.
 $$
-
-each of which is a vector of size $n_u$.
 
 The planned trajectory should satisfy the discrete dynamics of the system, and should start at some initial state $\bar{x}_0 \in \mathbb{R}^{n_x}$, yielding the equality constraints
 

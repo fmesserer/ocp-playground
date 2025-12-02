@@ -52,7 +52,7 @@ $$
 
 which rotates the drone around its center of mass. 
 
-Overall, the resulting dynamcs are:
+Overall, the resulting dynamics are:
 
 $$
 \begin{aligned}

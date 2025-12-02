@@ -10,7 +10,7 @@ $$
 \begin{aligned}
 \min_{x_0,u_0,\dots,u_{N-1}, x_N} &\sum_{k=0}^{N-1} l_k(x_k,u_k) + E(x_N) \\
 \text{s.t.}\quad & 0 = x_0 - x, \\
-&  0 = x_{k+1} - F(x_k, u_k), \quad &k=0,\dots,N-1 \\
+&  0 = x_{k+1} - F(x_k, u_k), \quad &k=0,\dots,N-1, \\
 &  0 \geq h(x_k, u_k), \quad &k=0,\dots,N-1.
 \end{aligned}
 $$
@@ -21,7 +21,7 @@ After its solution, the first control $u_0$ is applied to the system. In the nex
 
 
 ## Further Literature:
-- **Moritz Diehl and Sébastien Gros**, _Numerical Optimal Control_. [http://www.syscop.de/numericaloptimalcontrol](http://www.syscop.de/numericaloptimalcontrol).
+- **Moritz Diehl and Sébastien Gros**, _Numerical Optimal Control_. [https://www.syscop.de/files/2024ws/NOC/book-NOCSE.pdf](https://www.syscop.de/files/2024ws/NOC/book-NOCSE.pdf).
 
 - **J. B. Rawlings, D. Q. Mayne, and M. M. Diehl**, *Model Predictive Control: Theory, Computation, and Design*, 2nd edition, Nob Hill, 2017. [https://sites.engineering.ucsb.edu/~jbraw/mpc/](https://sites.engineering.ucsb.edu/~jbraw/mpc/).
 
