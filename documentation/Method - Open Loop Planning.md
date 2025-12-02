@@ -91,7 +91,7 @@ $$
 h(x_k, u_k) \leq 0.
 $$
 
-## Practical Solution of the Nonlinear Programm
+## Practical Solution of the Nonlinear Program
 The nonlinear program above is of the general form
 
 $$
