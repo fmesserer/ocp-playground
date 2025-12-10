@@ -33,7 +33,7 @@ The following forces act on the drone:
 - Rotor forces, with $u_\mathrm{l}, u_\mathrm{r}$ given as controls at distance $d = 5\,\mathrm{cm}$ from the center of gravity.
 
 $$
-F_p = \left(u_\mathrm{l} + u_\mathrm{r}\right) \begin{bmatrix}  \sin(\phi) \\
+F_p = \left(u_\mathrm{l} + u_\mathrm{r}\right) \begin{bmatrix}  -\sin(\phi) \\
 \cos(\phi)\end{bmatrix}
 $$
 

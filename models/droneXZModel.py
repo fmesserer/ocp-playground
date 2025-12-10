@@ -4,9 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import matplotlib
 import matplotlib.animation as animation
-import numpy as np
-
- 
+import numpy as np 
 
 """
 x = (px, pz, vx, vz, pitch, vpitch)
@@ -37,7 +35,7 @@ class DroneXZModel:
             -(u[0] + u[1]) * ca.sin(x[4]) / self.model_config.mass,                               # \dot{vx}
             - self.model_config.gravity + (u[0] + u[1]) * ca.cos(x[4]) / self.model_config.mass,  # \dot{vz}
             x[5],  # \dot{pitch}
-            (u[1] - u[0]) / self.model_config.inertia                                             # \dot{vpitch}
+            (u[1] - u[0]) * self.model_config.d / self.model_config.inertia                                             # \dot{vpitch}
         )
         # set up integrator for discrete dynamics
         # multiply xdot by sampling time (time scaling), since casadi integrator integrates over [0,1] by default
