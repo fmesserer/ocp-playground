@@ -62,3 +62,6 @@ Alternatively, you can simply download as a ZIP folder via the `<> Code` -Button
 	```
 	If you see a figure popping up, that means that everything works as intended.
 
+### Acknowledgements
+
+We would like to thank Leander Bürkin for pointing out a bug in the drone dynamics.
