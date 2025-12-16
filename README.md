@@ -35,7 +35,7 @@ For each of the models, we prepared examples that you can use as a starting poin
 ### Tools & Installation
 
 We use the python framework [`CasAdi`](https://web.casadi.org/) to formulate OCPs.
-If you already have Python installed on your system or want to use another IDE, feel free to skip to bullet 4.
+To install all required python packages, run the following command (or a corresponding one in case your using a different package manager)
 
 ```bash
 pip install numpy scipy matplotlib casadi
