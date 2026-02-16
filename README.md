@@ -1,7 +1,7 @@
 
-This repository is used as part of the lecture on Numerical Optimal Control by Prof. Moritz Diehl.
+This repository is used for teaching at syscop.
 
-https://www.syscop.de/teaching/ws2025/numerical-optimal-control
+https://www.syscop.de/
 
 The repository has been created based on https://github.com/JakobHarz/ControlHackathon by Jakob Harzer and Yunfan Gao.
 
